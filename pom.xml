@@ -29,6 +29,7 @@
         <module>jnlp-servlet</module>
         <module>launchers</module>
         <module>installer</module>
+        <module>install4Jinstaller</module>
     </modules>
 
     <repositories>
