@@ -75,6 +75,63 @@
                 </plugins>
             </build>
         </profile>
+        <profile>
+            <id>fxrelease-windows</id>
+            <activation>
+                <os>
+                    <family>windows</family>
+                </os>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.6.0</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <executable>C:/Users/mariu/Java/jdk-13/bin/jpackage</executable>
+                            <arguments>
+                                <argument>create-app-image</argument>
+
+                                <argument>-n</argument>
+                                <argument>IceTea-Web</argument>
+
+                                <argument>--main-class</argument>
+                                <argument>net.adoptopenjdk.icedteaweb.client.commandline.CommandLine</argument>
+
+                                <argument>--main-jar</argument>
+                                <argument>icedtea-web-core-2.0.jar</argument>
+
+                                <argument>--app-version</argument>
+                                <argument>${project.version}</argument>
+
+                                <argument>-i</argument>
+                                <argument>${project.basedir}/../core/target</argument>
+
+                                <argument>--temp-root</argument>
+                                <argument>${project.build.directory}/jpackage</argument>
+
+                                <argument>--runtime-image</argument>
+                                <argument>C:\Users\mariu\Java\jdk-9</argument>
+
+                                <argument>--output</argument>
+                                <argument>output</argument>
+
+                                <argument>--verbose</argument>
+                            </arguments>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
 
 
